@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 
 
 
-// STORE -> GLOBALIZED STATE
+
 
 
 
@@ -34,8 +34,14 @@ const counter = (state = 0, action) => {
   }
 }
 
-// DISPATCH
+// STORE -> GLOBALIZED STATE
+let store = createStore(counter);
 
+// Display in the console
+store.subscribe(() => console.log(store.getState()));
+
+// DISPATCH
+store.dispatch(increment());
 
 ReactDOM.render(
   <React.StrictMode>
